@@ -25,11 +25,11 @@ const Inner = styled.div`
   margin-top: 100px;
 `;
 
-const IdeaOverlay = ({ props, cancelNewIdeaRequested }) => (
-  <Curtain onClick={cancelNewIdeaRequested}>
+const IdeaOverlay = ({ props, overlayClose }) => (
+  <Curtain onClick={overlayClose}>
     <Inner>
       <IdeaForm {...props} />
-      <Button id="Cancel idea" onClick={cancelNewIdeaRequested}>
+      <Button id="Cancel idea" onClick={overlayClose}>
         Cancel
       </Button>
     </Inner>
@@ -37,7 +37,7 @@ const IdeaOverlay = ({ props, cancelNewIdeaRequested }) => (
 );
 
 IdeaOverlay.propTypes = {
-  cancelNewIdeaRequested: PropTypes.func,
+  overlayClose: PropTypes.func,
 };
 
 export default IdeaOverlay;

@@ -10,7 +10,7 @@ describe('<IdeaOverlay />', () => {
     const mock = jest.fn();
     const wrapper = mount(
       <Provider>
-        <IdeaOverlay cancelNewIdeaRequested={mock} />
+        <IdeaOverlay overlayClose={mock} />
       </Provider>
     );
 
@@ -21,7 +21,7 @@ describe('<IdeaOverlay />', () => {
     const mock = jest.fn();
     const wrapper = mount(
       <Provider>
-        <IdeaOverlay cancelNewIdeaRequested={mock} />
+        <IdeaOverlay overlayClose={mock} />
       </Provider>
     );
 

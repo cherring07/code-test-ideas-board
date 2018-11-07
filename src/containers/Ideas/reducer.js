@@ -1,24 +1,58 @@
-import { OVERLAY_CLOSE, OVERLAY_OPEN } from './constants';
-
-import ideas from './ideas.json';
+import {
+  IDEAS_RECEIVED,
+  IDEAS_REQUESTED,
+  NEW_IDEA_RECEIVED,
+  NEW_IDEA_REQUESTED,
+  OVERLAY_CLOSE,
+  OVERLAY_OPEN,
+} from './constants';
 
 export const initialState = {
-  ideas: ideas,
-  overlayOpen: false,
+  loading: false,
+  ideas: [],
+  newIdea: {},
+  overlayStatus: false,
 };
 
 function ideasReducer(state = initialState, action) {
   switch (action.type) {
+    case IDEAS_RECEIVED:
+      return {
+        ...state,
+        ideas: action.ideas,
+        loading: false,
+      };
+
+    case IDEAS_REQUESTED:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case NEW_IDEA_RECEIVED:
+      return {
+        ...state,
+        newIdea: action.idea,
+        loading: false,
+      };
+
+    case NEW_IDEA_REQUESTED:
+      return {
+        ...state,
+        loading: true,
+      };
+
     case OVERLAY_CLOSE:
       return {
         ...state,
-        overlayOpen: false,
+        overlayStatus: false,
+        newIdea: {},
       };
 
     case OVERLAY_OPEN:
       return {
         ...state,
-        overlayOpen: true,
+        overlayStatus: true,
       };
     default:
       return state;

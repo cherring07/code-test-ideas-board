@@ -8,15 +8,15 @@ const Title = styled.h4`
   color: grey;
 `;
 
-const IdeaCard = ({ idea: { title } }) => (
+const IdeaCard = ({ idea: { id } }) => (
   <Card>
-    <Title>{title}</Title>
+    <Title>ID: {id}</Title>
   </Card>
 );
 
 IdeaCard.propTypes = {
   idea: PropTypes.shape({
-    title: PropTypes.string,
+    id: PropTypes.number,
   }),
 };
 

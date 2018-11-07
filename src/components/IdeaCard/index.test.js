@@ -6,12 +6,12 @@ import IdeaCard from './index';
 describe('<IdeaCard />', () => {
   it('displays IdeaCard', () => {
     const idea = {
-      title: 'A great title',
+      id: 10,
     };
 
     const wrapper = mount(<IdeaCard idea={idea} />);
 
     expect(wrapper.find(IdeaCard)).toHaveLength(1);
-    expect(wrapper.html().indexOf('A great title')).not.toBe(-1);
+    expect(wrapper.html().indexOf('ID: 10')).not.toBe(-1);
   });
 });
