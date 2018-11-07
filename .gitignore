@@ -1,0 +1,10 @@
+# auto-generated stuff
+coverage
+build
+node_modules
+stats.json
+
+# Basic
+.DS_Store
+npm-debug.log
+.idea
