@@ -6,3 +6,7 @@ export const NEW_IDEA_REQUESTED =
   'containers/Ideas/constants/NEW_IDEA_REQUESTED';
 export const OVERLAY_CLOSE = 'containers/Ideas/constants/OVERLAY_CLOSE';
 export const OVERLAY_OPEN = 'containers/Ideas/constants/OVERLAY_OPEN';
+export const UPDATE_IDEA_RECEIVED =
+  'containers/Ideas/constants/UPDATE_IDEA_RECEIVED';
+export const UPDATE_IDEA_REQUESTED =
+  'containers/Ideas/constants/UPDATE_IDEA_REQUESTED';

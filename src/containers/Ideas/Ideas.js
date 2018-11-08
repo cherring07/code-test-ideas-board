@@ -12,10 +12,15 @@ class Ideas extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.newIdea === {}) {
+    if (this.props.newIdea !== prevProps.newIdea) {
+      if (this.props.newIdea.id) {
+        this.props.overlayOpen();
+      }
+    }
+
+    if (this.props.refresh !== prevProps.refresh) {
       this.props.overlayClose();
-    } else if (this.props.newIdea.id !== prevProps.newIdea.id) {
-      this.props.overlayOpen();
+      this.props.ideasRequested();
     }
   }
 
@@ -41,9 +46,10 @@ Ideas.propTypes = {
   ideasRequested: PropTypes.func,
   newIdea: PropTypes.object,
   newIdeaRequested: PropTypes.func,
-  overlayOpen: PropTypes.func,
   overlayClose: PropTypes.func,
+  overlayOpen: PropTypes.func,
   overlayStatus: PropTypes.bool,
+  refresh: PropTypes.bool,
 };
 
 export default Ideas;

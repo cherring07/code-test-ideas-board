@@ -6,6 +6,8 @@ import {
   NEW_IDEA_REQUESTED,
   OVERLAY_CLOSE,
   OVERLAY_OPEN,
+  UPDATE_IDEA_RECEIVED,
+  UPDATE_IDEA_REQUESTED,
 } from './constants';
 
 export function genericError(error) {
@@ -50,5 +52,20 @@ export function overlayOpen() {
 export function overlayClose() {
   return {
     type: OVERLAY_CLOSE,
+  };
+}
+
+export function updateIdeaRequested(title, body) {
+  return {
+    type: UPDATE_IDEA_REQUESTED,
+    title,
+    body,
+  };
+}
+
+export function updateIdeaReceived(idea) {
+  return {
+    type: UPDATE_IDEA_RECEIVED,
+    idea,
   };
 }

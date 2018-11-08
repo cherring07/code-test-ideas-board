@@ -5,10 +5,9 @@ import PropTypes from 'prop-types';
 import Button from '../Button';
 import InputText from '../InputText';
 
-const IdeaForm = ({ handleSubmit, onChange, submitting }) => (
-  <form>
+const IdeaForm = ({ handleSubmit, submitting }) => (
+  <form onSubmit={handleSubmit}>
     <Field
-      onChange={onChange}
       component={InputText}
       id="Title"
       label="Title"
@@ -19,7 +18,6 @@ const IdeaForm = ({ handleSubmit, onChange, submitting }) => (
     />
 
     <Field
-      onChange={onChange}
       component={InputText}
       id="Body"
       label="Body"
@@ -28,15 +26,19 @@ const IdeaForm = ({ handleSubmit, onChange, submitting }) => (
       type="text"
     />
 
-    <Button disabled={submitting} id="Add idea" onClick={handleSubmit}>
-      Add
+    <Button
+      disabled={submitting}
+      id="Add idea"
+      onClick={handleSubmit}
+      spaceTop={true}
+    >
+      {submitting ? 'Adding' : 'Add new idea'}
     </Button>
   </form>
 );
 
 IdeaForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func,
   submitting: PropTypes.bool.isRequired,
 };
 

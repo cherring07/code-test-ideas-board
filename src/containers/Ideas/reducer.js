@@ -5,9 +5,12 @@ import {
   NEW_IDEA_REQUESTED,
   OVERLAY_CLOSE,
   OVERLAY_OPEN,
+  UPDATE_IDEA_RECEIVED,
+  UPDATE_IDEA_REQUESTED,
 } from './constants';
 
 export const initialState = {
+  refresh: false,
   loading: false,
   ideas: [],
   newIdea: {},
@@ -26,7 +29,9 @@ function ideasReducer(state = initialState, action) {
     case IDEAS_REQUESTED:
       return {
         ...state,
+        ideas: [],
         loading: true,
+        refresh: false,
       };
 
     case NEW_IDEA_RECEIVED:
@@ -53,6 +58,25 @@ function ideasReducer(state = initialState, action) {
       return {
         ...state,
         overlayStatus: true,
+      };
+
+    case UPDATE_IDEA_REQUESTED:
+      return {
+        ...state,
+        loading: true,
+        newIdea: {
+          ...state.newIdea,
+          title: action.title,
+          body: action.body,
+        },
+      };
+
+    case UPDATE_IDEA_RECEIVED:
+      return {
+        ...state,
+        loading: true,
+        newIdea: {},
+        refresh: true,
       };
     default:
       return state;
